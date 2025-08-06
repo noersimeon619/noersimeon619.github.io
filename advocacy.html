@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacy: Counter-Insurgency</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Using npa001.jpg.jpg as background for consistency with the theme */
+            background-image: url('npa001.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex justify-start px-4">
+            <a href="index.html" class="btn-back bg-gray-700 text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-800 text-lg font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            Advocacy: Counter-Insurgency in the Philippines
+        </h1>
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700 max-w-4xl text-left">
+            <p class="text-lg mb-4 text-outline">
+                Effective counter-insurgency strategies in the Philippines must go beyond military approaches and embrace a holistic framework that addresses the root causes of conflict. Our advocacy centers on promoting sustainable peace through socio-economic development, good governance, and respect for human rights.
+            </p>
+            <h2 class="text-3xl font-bold mb-4 text-outline">Key Pillars of Our Approach:</h2>
+            <ul class="list-disc list-inside text-lg mb-4 space-y-2 text-outline">
+                <li>
+                    <span class="font-semibold">Community-Centric Development:</span> Investing in education, healthcare, infrastructure, and livelihood programs in vulnerable areas to reduce poverty and provide opportunities.
+                </li>
+                <li>
+                    <span class="font-semibold">Good Governance & Rule of Law:</span> Strengthening local governance, combating corruption, and ensuring equitable access to justice for all citizens.
+                </li>
+                <li>
+                    <span class="font-semibold">Human Rights Protection:</span> Upholding human rights as a cornerstone of all operations, ensuring accountability for abuses, and protecting civilians.
+                </li>
+                <li>
+                    <span class="font-semibold">Peacebuilding & Reconciliation:</span> Supporting dialogue initiatives, fostering reconciliation between conflicting parties, and reintegrating former combatants into society.
+                </li>
+                <li>
+                    <span class="font-semibold">Strategic Communication:</span> Countering misinformation and promoting narratives of peace, unity, and national development.
+                </li>
+            </ul>
+            <p class="text-lg text-outline">
+                By focusing on these areas, we aim to build trust, address grievances, and create an environment where insurgency loses its appeal, paving the way for lasting peace and prosperity in the Philippines.
+            </p>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+</body>
+</html>

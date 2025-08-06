@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* New background image for design, separate from npa001.jpg.jpg */
+            background-image: url('https://placehold.co/1920x1080/2C3E50/FFFFFF?text=AWARENESS+AND+COMMUNITY'); /* Placeholder for a design-oriented background */
+            background-size: cover; /* Stretches the image to cover the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the background stays fixed during scroll */
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #60A5FA; /* Blue border for emphasis */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+            <a href="index.html" class="nav-link bg-gradient-to-r from-red-600 to-red-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-red-700 hover:to-red-900 text-lg font-semibold">Home</a>
+            <a href="about.html" class="nav-link bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-blue-700 hover:to-blue-900 text-lg font-semibold">About Me</a>
+            <a href="advocacy.html" class="nav-link bg-gradient-to-r from-green-600 to-green-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-green-700 hover:to-green-900 text-lg font-semibold">Advocacy</a>
+            <a href="community_awareness.html" class="nav-link bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-purple-700 hover:to-purple-900 text-lg font-semibold">Community Awareness</a>
+            <a href="interactive_quiz.html" class="nav-link bg-gradient-to-r from-orange-600 to-orange-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-orange-700 hover:to-orange-900 text-lg font-semibold">Interactive Zone</a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            About Me
+        </h1>
+        <!-- Anonymous Profile Image -->
+        <img src="https://placehold.co/150x150/808080/FFFFFF?text=ANONYMOUS" alt="Anonymous Profile" class="profile-image">
+
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700 max-w-3xl text-left">
+            <p class="text-lg mb-4 text-outline">
+                As a student, I am deeply committed to understanding and contributing to peace and stability in the Philippines. My academic journey has led me to explore the complex dynamics of insurgency and its profound effects on communities nationwide. I believe that through dedicated learning, thoughtful discussion, and collective action, we can work towards a more resilient and harmonious society.
+            </p>
+            <p class="text-lg mb-4 text-outline">
+                My focus is on raising awareness about the vital role community involvement plays in comprehensive counter-insurgency efforts. I am particularly interested in approaches that prioritize civilian protection, uphold human rights, and promote sustainable development as essential foundations for lasting peace.
+            </p>
+            <p class="text-lg text-outline">
+                This website serves as a platform to share insights and foster a community of individuals who are committed to positive change. Thank you for visiting and for your interest in this important endeavor.
+            </p>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Social Awareness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* New background image for community awareness */
+            background-image: url('https://placehold.co/1920x1080/4CAF50/FFFFFF?text=COMMUNITY+AWARENESS'); /* Placeholder for a community awareness background */
+            background-size: cover; /* Stretches the image to cover the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the background stays fixed during scroll */
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex justify-start px-4">
+            <a href="index.html" class="btn-back bg-gray-700 text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-800 text-lg font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            Community & Social Awareness Against Insurgency
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-4xl text-outline">
+            Empowering communities through knowledge and collective action is key to building resilience against the threats of insurgency.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mb-12">
+            <!-- Importance of Awareness -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-blue-700 hover:border-blue-500 transition-all duration-300 text-left">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-lightbulb text-blue-500 text-4xl mr-4"></i>
+                    <h2 class="text-4xl font-bold text-outline">The Power of Awareness</h2>
+                </div>
+                <p class="text-lg mb-4 text-outline">
+                    Community and social awareness are crucial in preventing the spread of insurgency. When communities are informed about the tactics, ideologies, and dangers associated with armed groups like the New People's Army (NPA), they are better equipped to resist recruitment and manipulation. Awareness fosters critical thinking and strengthens the resolve of individuals to protect their families and communities.
+                </p>
+                <p class="text-lg text-outline">
+                    It's about understanding the narratives used by insurgents, recognizing the signs of their presence, and knowing how to safely report suspicious activities to legitimate authorities. An informed community is a strong community, capable of identifying and rejecting extremist influences.
+                </p>
+            </div>
+
+            <!-- Building Resilient Communities -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-purple-700 hover:border-purple-500 transition-all duration-300 text-left">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-users text-purple-500 text-4xl mr-4"></i>
+                    <h2 class="text-4xl font-bold text-outline">Building Resilient Communities</h2>
+                </div>
+                <p class="text-lg mb-4 text-outline">
+                    Beyond mere awareness, active community engagement is vital. This involves fostering strong social bonds, promoting local leadership, and encouraging participation in development initiatives. Insurgency often thrives in areas where there is a lack of basic services, economic opportunities, and trust in governance.
+                </p>
+                <ul class="list-disc list-inside text-lg space-y-2 text-outline">
+                    <li><span class="font-semibold">Local Governance Support:</span> Engaging with local government units to ensure effective delivery of services and address community grievances.</li>
+                    <li><span class="font-semibold">Youth Empowerment:</span> Creating programs that provide education, skills training, and positive avenues for youth development, diverting them from recruitment.</li>
+                    <li><span class="font-semibold">Peace Education:</span> Integrating peace and conflict resolution into local education systems and community dialogues.</li>
+                    <li><span class="font-semibold">Inter-faith & Cultural Dialogue:</span> Promoting understanding and respect among diverse groups to prevent division and exploitation.</li>
+                </ul>
+                <p class="text-lg mt-4 text-outline">
+                    By addressing these vulnerabilities and strengthening the social fabric, communities can become more resilient and less susceptible to the allure of armed groups.
+                </p>
+            </div>
+        </div>
+
+        <!-- Background on Community Insurgency -->
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-green-700 max-w-6xl text-left">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-map-marked-alt text-green-500 text-4xl mr-4"></i>
+                <h2 class="text-4xl font-bold text-outline">Background: Community Dynamics of Insurgency</h2>
+            </div>
+            <p class="text-lg mb-4 text-outline">
+                Insurgency in the Philippines, particularly by the NPA, often exploits existing socio-economic issues such as poverty, land disputes, lack of access to education and healthcare, and perceived government neglect. These grievances can create fertile ground for recruitment, as insurgents promise solutions and justice that state institutions may appear to fail to provide.
+            </p>
+            <p class="text-lg mb-4 text-outline">
+                Communities in remote and marginalized areas are particularly vulnerable. Insurgents often establish a presence by providing basic services, resolving local disputes, or offering protection, thereby gaining a foothold and local support. This "shadow governance" can erode trust in legitimate authorities and create a dependency on the insurgent group.
+            </p>
+            <p class="text-lg text-outline">
+                Counter-insurgency efforts, therefore, must involve robust civilian-military cooperation, intelligence gathering from within communities, and, most importantly, a commitment to improving the lives of ordinary citizens. Sustainable peace requires winning the "hearts and minds" of the people by addressing their fundamental needs and ensuring their safety and well-being.
+            </p>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm mt-8">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert & Prevention</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Placeholder image for "no to terrorism" */
+            background-image: url('https://placehold.co/1920x1080/0A0A0A/FFFFFF?text=NO+TO+TERRORISM');
+            background-size: cover; /* Stretches the image to cover the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the background stays fixed during scroll */
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Default text color */
+        }
+        .text-outline {
+            /* Using text-shadow for outlining effect */
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                 /* Additional shadows for a thicker outline */
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-60"></div> <!-- Darker overlay for better text readability -->
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex justify-start px-4">
+            <a href="index.html" class="btn-back bg-gray-700 text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-800 text-lg font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            Vigilance & Prevention: Countering Insurgency
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-4xl text-outline">
+            Understanding the threats and knowing how to act are crucial steps in building resilient communities against insurgency and terrorism.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mb-12">
+            <!-- Alert Section -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-red-700 hover:border-red-500 transition-all duration-300 text-left">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-4xl mr-4"></i>
+                    <h2 class="text-4xl font-bold text-outline">Alert: Recognizing the Signs</h2>
+                </div>
+                <p class="text-lg mb-4 text-outline">
+                    Awareness is your first line of defense. Insurgent groups often employ deceptive tactics to recruit and gain support, especially among vulnerable populations. Be cautious of:
+                </p>
+                <ul class="list-disc list-inside text-lg space-y-2 text-outline">
+                    <li><span class="font-semibold">Unusual Gatherings:</span> Be mindful of unexplained meetings or activities, particularly in remote areas.</li>
+                    <li><span class="font-semibold">Propaganda & Recruitment:</span> Watch out for individuals spreading divisive ideologies, false promises, or attempting to recruit youth.</li>
+                    <li><span class="font-semibold">Threats & Intimidation:</span> Report any instances of extortion, harassment, or threats from suspicious groups.</li>
+                    <li><span class="font-semibold">Presence of Strangers:</span> Be vigilant about unknown individuals attempting to establish influence or gather intelligence in your community.</li>
+                </ul>
+                <p class="text-lg mt-4 text-outline">
+                    If you observe any suspicious activities, it is crucial to report them to local authorities immediately. Your vigilance can save lives.
+                </p>
+            </div>
+
+            <!-- Prevention Section -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-green-700 hover:border-green-500 transition-all duration-300 text-left">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-shield-alt text-green-500 text-4xl mr-4"></i>
+                    <h2 class="text-4xl font-bold text-outline">Prevention: Building Resilience</h2>
+                </div>
+                <p class="text-lg mb-4 text-outline">
+                    Preventing involvement in insurgency requires strengthening community bonds, promoting education, and addressing underlying socio-economic issues.
+                </p>
+                <ul class="list-disc list-inside text-lg space-y-2 text-outline">
+                    <li><span class="font-semibold">Community Engagement:</span> Participate in local governance and community development projects to foster unity and address local needs.</li>
+                    <li><span class="font-semibold">Education & Awareness:</span> Support initiatives that educate youth about the dangers of radicalization and the importance of peace.</li>
+                    <li><span class="font-semibold">Economic Opportunity:</span> Advocate for and support programs that create sustainable livelihoods and reduce poverty, which are often exploited by insurgents.</li>
+                    <li><span class="font-semibold">Strong Family Values:</span> Encourage open communication within families and provide guidance to prevent youth from being lured by false promises.</li>
+                </ul>
+                <p class="text-lg mt-4 text-outline">
+                    By actively participating in these preventive measures, we can collectively build a society that is strong, informed, and resistant to the influences of armed conflict.
+                </p>
+            </div>
+        </div>
+
+        <!-- Educational Background Section -->
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-blue-700 max-w-6xl text-left">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-book-open text-blue-500 text-4xl mr-4"></i>
+                <h2 class="text-4xl font-bold text-outline">Educational Background: Understanding the Conflict</h2>
+            </div>
+            <p class="text-lg mb-4 text-outline">
+                The New People's Army (NPA) is the armed wing of the Communist Party of the Philippines (CPP). Formed in 1969, its roots lie in socio-economic disparities, political grievances, and historical injustices. Understanding these complex factors is crucial for developing effective and sustainable counter-insurgency strategies.
+            </p>
+            <p class="text-lg mb-4 text-outline">
+                Their ideology is rooted in Marxism-Leninism-Maoism, aiming to overthrow the Philippine government through armed struggle and establish a communist state. Over decades, the conflict has resulted in significant loss of life, displacement of communities, and hindered development, particularly in rural areas.
+            </p>
+            <p class="text-lg text-outline">
+                Modern counter-insurgency efforts increasingly emphasize a "whole-of-nation" approach, integrating military operations with socio-economic development, good governance, and peacebuilding initiatives. Education plays a vital role in this by promoting critical thinking, fostering national unity, and empowering citizens to resist extremist narratives.
+            </p>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm mt-8">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+</body>
+</html>

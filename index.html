@@ -1,0 +1,117 @@
+-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Social Awareness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('npa001.jpg.jpg');
+            background-size: cover; /* Stretches the image to cover the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the background stays fixed during scroll */
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Default text color */
+        }
+        .text-outline {
+            /* Using text-shadow for outlining effect */
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                 /* Additional shadows for a thicker outline */
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for better text readability -->
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+            <a href="index.html" class="nav-link bg-gradient-to-r from-red-600 to-red-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-red-700 hover:to-red-900 text-lg font-semibold">Home</a>
+            <a href="about.html" class="nav-link bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-blue-700 hover:to-blue-900 text-lg font-semibold">About Me</a>
+            <a href="advocacy.html" class="nav-link bg-gradient-to-r from-green-600 to-green-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-green-700 hover:to-green-900 text-lg font-semibold">Advocacy</a>
+            <a href="community_awareness.html" class="nav-link bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-purple-700 hover:to-purple-900 text-lg font-semibold">Community Awareness</a>
+            <a href="interactivezone.html" class="nav-link bg-gradient-to-r from-orange-600 to-orange-800 text-white px-6 py-3 rounded-full shadow-lg hover:from-orange-700 hover:to-orange-900 text-lg font-semibold">Interactive Zone</a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            Fostering Community & Social Awareness
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-3xl text-outline">
+            Understanding and addressing the complexities of insurgency in the Philippines requires a united front. This platform aims to shed light on critical issues, promote dialogue, and empower communities through informed social awareness.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mb-12">
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                <h2 class="text-3xl font-bold mb-4 text-outline">Educate</h2>
+                <p class="text-lg text-outline">Providing accurate information and historical context to understand the roots and impacts of insurgency.</p>
+            </div>
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-700 hover:border-green-500 transition-all duration-300">
+                <h2 class="text-3xl font-bold mb-4 text-outline">Engage</h2>
+                <p class="text-lg text-outline">Encouraging active participation in community initiatives and discussions for peace and development.</p>
+            </div>
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-700 hover:border-red-500 transition-all duration-300">
+                <h2 class="text-3xl font-bold mb-4 text-outline">Empower</h2>
+                <p class="text-lg text-outline">Supporting local efforts to build resilient communities resistant to the influence of armed conflict.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 w-full max-w-5xl">
+            <h2 class="text-4xl font-bold mb-6 text-outline">Explore More Topics:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="advocacy.html" class="block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-green-700 hover:border-green-500 transition-all duration-300 text-left flex items-center">
+                    <i class="fas fa-hand-fist text-green-500 text-3xl mr-4"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-outline">Counter-Insurgency Advocacy</h3>
+                        <p class="text-lg text-outline">Learn about strategies and approaches to counter insurgency in the Philippines.</p>
+                    </div>
+                </a>
+                <a href="community_awareness.html" class="block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-purple-700 hover:border-purple-500 transition-all duration-300 text-left flex items-center">
+                    <i class="fas fa-users text-purple-500 text-3xl mr-4"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-outline">Community & Social Awareness</h3>
+                        <p class="text-lg text-outline">Understand the importance of community vigilance and resilience against insurgency.</p>
+                    </div>
+                </a>
+                <a href="interactive_quiz.html" class="block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-orange-700 hover:border-orange-500 transition-all duration-300 text-left flex items-center">
+                    <i class="fas fa-question-circle text-orange-500 text-3xl mr-4"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-outline">Interactive Zone & Quizzes</h3>
+                        <p class="text-lg text-outline">Test your knowledge and engage with interactive learning materials.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm mt-8">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

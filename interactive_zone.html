@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Zone</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Using npa001.jpg.jpg as background for consistency with the theme */
+            background-image: url('npa001.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .text-outline {
+            text-shadow:
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+        }
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+        }
+        .question-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: left;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .option-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #60A5FA; /* Blue for hover */
+        }
+        .option-button.selected {
+            background-color: #3B82F6; /* Blue for selected */
+            border-color: #3B82F6;
+        }
+        .option-button.correct {
+            background-color: #10B981; /* Green for correct */
+            border-color: #10B981;
+        }
+        .option-button.incorrect {
+            background-color: #EF4444; /* Red for incorrect */
+            border-color: #EF4444;
+        }
+        .feedback-message {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #1F2937; /* Dark gray */
+            margin: auto;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid #4B5563;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+
+    <header class="relative z-10 w-full py-6 bg-transparent">
+        <nav class="container mx-auto flex justify-start px-4">
+            <a href="index.html" class="btn-back bg-gray-700 text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-800 text-lg font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-outline leading-tight">
+            Interactive Zone: Test Your Knowledge!
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-4xl text-outline">
+            Engage with our quiz to deepen your understanding of counter-insurgency, community resilience, and peacebuilding efforts.
+        </p>
+
+        <div id="quiz-container" class="quiz-container hidden">
+            <div id="question-card" class="question-card">
+                <h2 id="question-text" class="text-3xl font-bold mb-6 text-outline"></h2>
+                <div id="options-container">
+                    <!-- Options will be dynamically loaded here -->
+                </div>
+                <p id="feedback" class="feedback-message text-gray-300"></p>
+            </div>
+            <div class="flex justify-between mt-6">
+                <button id="prev-button" class="bg-gray-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-gray-700 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-arrow-left mr-2"></i> Previous
+                </button>
+                <button id="next-button" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                    Next <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button id="submit-button" class="bg-green-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-green-700 transition-colors cursor-pointer hidden">
+                    Submit Quiz <i class="fas fa-check ml-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <button id="start-quiz-button" class="bg-teal-600 text-white px-8 py-4 rounded-full shadow-lg hover:bg-teal-700 transition-colors text-xl font-semibold mt-8 cursor-pointer">
+            Start the 10-Point Quiz!
+        </button>
+
+        <!-- Quiz Result Modal -->
+        <div id="resultModal" class="modal flex">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2 class="text-4xl font-bold mb-4 text-white">Quiz Results</h2>
+                <p id="score-text" class="text-3xl mb-6 text-white"></p>
+                <button onclick="restartQuiz()" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition-colors cursor-pointer">
+                    Retake Quiz
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 w-full py-6 text-center text-gray-300 text-sm mt-8">
+        <p class="text-outline">&copy; 2025 Community Awareness Initiative. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                question: "What does NPA stand for in the context of the Philippines?",
+                options: ["New Philippine Army", "National People's Alliance", "New People's Army", "National Peace Accord"],
+                answer: "New People's Army",
+                explanation: "NPA stands for New People's Army, the armed wing of the Communist Party of the Philippines (CPP)."
+            },
+            {
+                question: "Which of these is generally considered a root cause of insurgency in the Philippines?",
+                options: ["High literacy rates", "Strong urban development", "Socio-economic disparities", "Abundant natural resources"],
+                answer: "Socio-economic disparities",
+                explanation: "Socio-economic disparities, poverty, and land issues are often cited as root causes fueling insurgency."
+            },
+            {
+                question: "What approach emphasizes integrating military operations with socio-economic development and good governance in counter-insurgency?",
+                options: ["Military-first approach", "Whole-of-nation approach", "Isolation strategy", "Urbanization strategy"],
+                answer: "Whole-of-nation approach",
+                explanation: "The 'whole-of-nation' approach integrates various government and civilian efforts for comprehensive counter-insurgency."
+            },
+            {
+                question: "Which of these is a key aspect of building community resilience against insurgency?",
+                options: ["Ignoring local grievances", "Promoting isolation", "Fostering strong social bonds", "Restricting information flow"],
+                answer: "Fostering strong social bonds",
+                explanation: "Strong social bonds and community engagement help build resilience against external influences like insurgency."
+            },
+            {
+                question: "When was the New People's Army (NPA) formed?",
+                options: ["1949", "1969", "1989", "2009"],
+                answer: "1969",
+                explanation: "The New People's Army (NPA) was formed on March 29, 1969."
+            },
+            {
+                question: "What ideology is the NPA primarily rooted in?",
+                options: ["Capitalism", "Democracy", "Marxism-Leninism-Maoism", "Anarchism"],
+                answer: "Marxism-Leninism-Maoism",
+                explanation: "The NPA's ideology is based on Marxism-Leninism-Maoism, aiming for a communist state."
+            },
+            {
+                question: "What is a common tactic used by insurgent groups for recruitment?",
+                options: ["Offering high-paying jobs", "Providing free luxury goods", "Spreading divisive ideologies and false promises", "Organizing large public concerts"],
+                answer: "Spreading divisive ideologies and false promises",
+                explanation: "Insurgent groups often exploit grievances and use propaganda to recruit members, especially from vulnerable sectors."
+            },
+            {
+                question: "What role does education play in counter-insurgency efforts?",
+                options: ["It is irrelevant", "It only benefits the elite", "It promotes critical thinking and national unity", "It increases radicalization"],
+                answer: "It promotes critical thinking and national unity",
+                explanation: "Education helps promote critical thinking, foster national unity, and empower citizens to resist extremist narratives."
+            },
+            {
+                question: "What is meant by 'shadow governance' in the context of insurgency?",
+                options: ["Secret government meetings", "Insurgents providing basic services and resolving disputes", "Government surveillance programs", "Underground economic activities"],
+                answer: "Insurgents providing basic services and resolving disputes",
+                explanation: "'Shadow governance' refers to insurgents establishing a presence by fulfilling roles typically held by the state, gaining local support."
+            },
+            {
+                question: "What is a crucial step if you observe suspicious activities related to insurgency?",
+                options: ["Confront the individuals yourself", "Ignore it and hope it goes away", "Report it to local authorities immediately", "Spread rumors about it"],
+                answer: "Report it to local authorities immediately",
+                explanation: "Reporting suspicious activities to local authorities is crucial for prevention and security."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(quizData.length).fill(null); // To store selected options
+        let score = 0;
+
+        const startQuizButton = document.getElementById('start-quiz-button');
+        const quizContainer = document.getElementById('quiz-container');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const submitButton = document.getElementById('submit-button');
+        const feedbackElement = document.getElementById('feedback');
+        const resultModal = document.getElementById('resultModal');
+        const scoreText = document.getElementById('score-text');
+
+        startQuizButton.addEventListener('click', startQuiz);
+        prevButton.addEventListener('click', showPreviousQuestion);
+        nextButton.addEventListener('click', showNextQuestion);
+        submitButton.addEventListener('click', submitQuiz);
+
+        function startQuiz() {
+            startQuizButton.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            currentQuestionIndex = 0;
+            userAnswers.fill(null); // Reset answers for a new quiz
+            score = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = quizData[currentQuestionIndex];
+            questionText.textContent = `${currentQuestionIndex + 1}. ${question.question}`;
+            optionsContainer.innerHTML = '';
+            feedbackElement.textContent = ''; // Clear previous feedback
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option-button');
+                button.textContent = option;
+                button.dataset.option = option; // Store the option text
+                button.addEventListener('click', () => selectOption(option, button));
+
+                // If user has already answered this question, show their selection
+                if (userAnswers[currentQuestionIndex] === option) {
+                    button.classList.add('selected');
+                }
+                optionsContainer.appendChild(button);
+            });
+
+            updateNavigationButtons();
+        }
+
+        function selectOption(selectedOption, clickedButton) {
+            // Remove 'selected' class from all options for this question
+            Array.from(optionsContainer.children).forEach(button => {
+                button.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked button
+            clickedButton.classList.add('selected');
+            userAnswers[currentQuestionIndex] = selectedOption; // Store the selected option
+            feedbackElement.textContent = ''; // Clear feedback when a new option is selected
+        }
+
+        function updateNavigationButtons() {
+            prevButton.disabled = currentQuestionIndex === 0;
+            nextButton.disabled = currentQuestionIndex === quizData.length - 1;
+
+            if (currentQuestionIndex === quizData.length - 1) {
+                nextButton.classList.add('hidden');
+                submitButton.classList.remove('hidden');
+            } else {
+                nextButton.classList.remove('hidden');
+                submitButton.classList.add('hidden');
+            }
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            score = 0;
+            quizData.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                if (userAnswer === question.answer) {
+                    score++;
+                }
+            });
+            displayResults();
+        }
+
+        function displayResults() {
+            scoreText.textContent = `You scored ${score} out of ${quizData.length} points!`;
+            resultModal.style.display = 'flex'; // Show the modal
+        }
+
+        function closeModal() {
+            resultModal.style.display = 'none';
+        }
+
+        function restartQuiz() {
+            closeModal();
+            startQuiz(); // Restart the quiz
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == resultModal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
